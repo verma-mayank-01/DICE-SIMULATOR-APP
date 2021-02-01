@@ -1,0 +1,53 @@
+package com.example.dice_simulator
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import androidx.core.view.isVisible
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val roll = findViewById<Button>(R.id.button)
+        val arr = arrayOf(1,2,3,4,5,6)
+        val one = findViewById<ImageView>(R.id.one)
+        val two = findViewById<ImageView>(R.id.two)
+        val three = findViewById<ImageView>(R.id.three)
+        val four = findViewById<ImageView>(R.id.four)
+        val five = findViewById<ImageView>(R.id.five)
+        val six = findViewById<ImageView>(R.id.six)
+        roll.setOnClickListener {
+            val c = arr.random()
+            one.visibility = ImageView.INVISIBLE
+            two.visibility = ImageView.INVISIBLE
+            three.visibility = ImageView.INVISIBLE
+            four.visibility = ImageView.INVISIBLE
+            five.visibility = ImageView.INVISIBLE
+            six.visibility = ImageView.INVISIBLE
+            println(c)
+            when(c){
+                1-> {
+                    one.visibility = ImageView.VISIBLE
+                }
+                2-> {
+                    two.visibility = ImageView.VISIBLE
+                }
+                3-> {
+                    three.visibility = ImageView.VISIBLE
+                }
+                4-> {
+                    four.visibility = ImageView.VISIBLE
+                }
+                5-> {
+                    five.visibility = ImageView.VISIBLE
+                }
+                6->{
+                    six.visibility = ImageView.VISIBLE
+                }
+            }
+        }
+    }
+}
